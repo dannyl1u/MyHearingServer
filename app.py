@@ -47,7 +47,7 @@ def insert():
 def get():
     sheet = setup_gspread()
     records = sheet.get_all_records()
-    return jsonify(records[1:])
+    return jsonify(records)
 
 if __name__ == '__main__':
     app.run(debug=True)
