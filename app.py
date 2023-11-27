@@ -49,5 +49,9 @@ def get():
     records = sheet.get_all_records()
     return jsonify(records)
 
+@app.route('/')
+def index():
+    return jsonify({'success': True, 'message': 'Hello World!'})
+
 if __name__ == '__main__':
     app.run(debug=True)
