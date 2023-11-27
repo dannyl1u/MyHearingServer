@@ -1,0 +1,7 @@
+google-api-python-client
+Flask
+Flask-Cors
+python-dotenv
+gunicorn
+gspread
+oauth2client
