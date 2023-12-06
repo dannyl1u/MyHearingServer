@@ -38,8 +38,6 @@ def insert():
         return jsonify({'success': False, 'error': 'Missing data'}), 400
 
     location = f"{latitude}, {longitude}"
-    
-    noise_level = 0 if noise_level < 0 else noise_level
 
     insert_row_to_sheet(location, noise_level, timestamp)
     return jsonify({'success': True})
