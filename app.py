@@ -36,9 +36,6 @@ def insert():
     noise_level_digits = ''.join([char for char in noise_level if char.isdigit()])
     noise_level = int(noise_level_digits) if noise_level_digits else 0
 
-    if noise_level < 0 or noise_level > 200:
-        noise_level = 0
-
     timestamp = data.get('timestamp')
     
     if latitude is None or longitude is None or noise_level is None or timestamp is None:
@@ -46,7 +43,9 @@ def insert():
 
     location = f"{latitude}, {longitude}"
 
-    insert_row_to_sheet(location, noise_level, timestamp)
+    if noise_level in range(0, 250):
+        insert_row_to_sheet(location, noise_level, timestamp)
+        
     return jsonify({'success': True})
 
 
