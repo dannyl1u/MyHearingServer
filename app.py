@@ -32,6 +32,10 @@ def insert():
     latitude = data.get('latitude')
     longitude = data.get('longitude')
     noise_level = data.get('noise_level')
+
+    noise_level_digits = ''.join([char for char in noise_level if char.isdigit()])
+    noise_level = int(noise_level_digits) if noise_level_digits else 0
+
     timestamp = data.get('timestamp')
     
     if latitude is None or longitude is None or noise_level is None or timestamp is None:
