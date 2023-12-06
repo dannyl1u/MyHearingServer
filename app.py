@@ -49,6 +49,12 @@ def get():
     records = sheet.get_all_records()
     return jsonify(records)
 
+@app.route('/api/v1/getRecent')
+def get_recent():
+    sheet = setup_gspread()
+    records = sheet.get_all_records()
+    return jsonify(records[-100:])
+
 @app.route('/')
 def index():
     return jsonify({'success': True, 'message': 'Hello World!'})
